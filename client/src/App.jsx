@@ -1,15 +1,17 @@
 import React from 'react'
 import { BrowserRouter } from "react-router-dom";
 import {Router,Header} from "./components";
+import Container from './layouts/Container';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <main className="p-8 md:px-4 py-8 w-full">
-      <Router/>
+      <main >
+      <Container>
+        <Router/>
+      </Container>
       </main>
-
     </BrowserRouter>
   )
 }
