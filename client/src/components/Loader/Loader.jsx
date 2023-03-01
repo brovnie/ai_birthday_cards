@@ -1,10 +1,11 @@
 import React from 'react'
 
-function CreateBirthdayCard() {
+function Loader() {
   return (
     <div>
+      
     </div>
   )
 }
 
-export default CreateBirthdayCard
+export default Loader
