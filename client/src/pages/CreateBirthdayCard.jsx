@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CreateBirthdayCard() {
+const CreateBirthdayCard = () => {
   return (
     <div>
     </div>

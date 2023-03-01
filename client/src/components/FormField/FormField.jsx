@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormField() {
+const FormField = () => {
   return (
     <div>
       
