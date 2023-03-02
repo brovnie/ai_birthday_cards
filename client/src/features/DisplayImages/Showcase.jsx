@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Loader } from "../../components";
+import { Card } from '../../layouts';
 
 const Showcase = () => {
+    const [loading,setLoading] = useState(false);
+
   return (
     <div>
-      Cards...
+        {loading ? (
+            <Loader />
+        ) : (
+      <Card />
+        ) 
+    }
     </div>
   )
 }
