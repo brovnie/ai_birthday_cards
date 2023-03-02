@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import { Loader } from "../../components";
-import { Card } from '../../layouts';
+import Search from '../Search/Search';
 
+import Grid from './Grid';
 const Showcase = () => {
     const [loading,setLoading] = useState(false);
 
+    const handleLoading = (data) => {
+      console.log("hello");
+      setLoading(data);
+    }
   return (
     <div>
-        {loading ? (
-            <Loader />
-        ) : (
-      <Card />
-        ) 
-    }
+    <Search isLoading={handleLoading}/>
+        {
+            loading ? ( <Loader /> ) : ( <Grid /> ) 
+        }
     </div>
   )
 }
