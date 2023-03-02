@@ -1,9 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect , Fragment} from 'react'
+import { Showcase } from '../features/DisplayImages';
+import { Hero } from '../components'
+
+
 const Home = () => {
   return (
-      <section>
-      Test
-      </section>
+      <Fragment>
+        <Hero />
+        <Showcase />
+      </Fragment>
   )
 }
 

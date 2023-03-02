@@ -2,8 +2,9 @@ import React from 'react'
 
 const CreateBirthdayCard = () => {
   return (
-    <div>
-    </div>
+    <section>
+      <h2>Generate your own AI Bithday card</h2>
+    </section>
   )
 }
 
