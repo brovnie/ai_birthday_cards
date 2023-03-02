@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormField = React.forwardRef((props, ref) => {
+const Input = React.forwardRef((props, ref) => {
   return (    
         <div className="flex"> 
             <label htmlFor={props.input.id} className={props.label.hidden ? "hidden" : ""}>{props.label.text}</label>
@@ -10,4 +10,4 @@ const FormField = React.forwardRef((props, ref) => {
 }
 )
 
-export default FormField;
+export default Input;
