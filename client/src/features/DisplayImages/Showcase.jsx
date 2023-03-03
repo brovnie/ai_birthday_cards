@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Loader } from "../../components";
-import Search from '../Search/Search';
+import { Search } from "../index.js";
 
 import Grid from './Grid';
 const Showcase = () => {
