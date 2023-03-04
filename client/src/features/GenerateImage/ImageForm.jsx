@@ -4,6 +4,8 @@ import {getRandomPrompt} from "../../utils";
 
 const ImageForm = (props) => {
     const textInput = useRef("");
+    const nameInput = useRef("");
+    const cardText = useRef("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,8 +15,37 @@ const ImageForm = (props) => {
     const promptHandler = () => {
         textInput.current.value = getRandomPrompt(textInput.current.value);
     }
+
   return (
     <form onSubmit={handleSubmit}>
+                <Input 
+            ref={nameInput}
+            label= {{
+                text: "Give your name",
+                hidden: false
+            }}
+            input={{
+                id: 'generate',
+                type: 'text',
+                pattern: "^[^ ].+[^ ]$",
+                placeholder: "Enter name",
+                className: "col-span-8"
+            }}
+        />
+        <Input 
+            ref={cardText}
+            label= {{
+                text: "Do you want to add birthday wishes?",
+                hidden: false
+            }}
+            input={{
+                id: 'generate',
+                type: 'text',
+                pattern: "^[^ ].+[^ ]$",
+                placeholder: "Type birthday wishes...",
+                className: "col-span-8"
+            }}
+        />
         <Input 
             ref={textInput}
             label= {{
@@ -29,8 +60,8 @@ const ImageForm = (props) => {
                 className: "col-span-8"
             }}
         />
-        <button type="submit" >Find Image</button>
-        <p><button onClick={promptHandler} type="button" >Click here</button> for inspiration</p>
+        <p>Need inspiration for the image? <button onClick={promptHandler} type="button" >Click here</button></p>
+        <button type="submit" >Generate Card</button>
     </form>
   )
 }
