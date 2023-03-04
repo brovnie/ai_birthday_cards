@@ -21,14 +21,14 @@ const Search = (props) => {
                 <Input 
                     ref={searchInput}
                     label= {{
-                        text: "Search...",
+                        text: "Search AI images...",
                         hidden: true
                     }}
                     input={{
                         id: 'search',
                         type: 'text',
                         pattern: "^[^ ].+[^ ]$",
-                        placeholder: "Search",
+                        placeholder: "Search AI Images",
                         className: "col-span-8"
                     }}
                 />
