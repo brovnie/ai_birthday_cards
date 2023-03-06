@@ -34,6 +34,7 @@ const ImageForm = (props) => {
 
         } catch (error) {
             console.log(error);
+            alert(error);
         }
         props.isLoading(false);
     }
