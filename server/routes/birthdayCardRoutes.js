@@ -7,3 +7,5 @@ import BirthdayCard from '../mongodb/models/birthdaycard.js';
 dotenv.config();
 
 const router = express.Router();
+
+export default router;
