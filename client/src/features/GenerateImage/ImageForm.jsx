@@ -5,27 +5,49 @@ import {getRandomPrompt} from "../../utils";
 const ImageForm = (props) => {
     const textInput = useRef("");
     const nameInput = useRef("");
-    const cardText = useRef("");
+    const wishesInput = useRef("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.isLoading(true);
     }
 
     const promptHandler = () => {
         textInput.current.value = getRandomPrompt(textInput.current.value);
     }
 
+    const generateCard = async () => {
+        if(textInput.current.value === "" || textInput.current.value === undefined) return;
+        try {
+            props.isLoading(true);
+            const url = 'http://localhost:8080/api/v1/dalle';
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({prompt: textInput.current.value })
+            });
+
+            const data = await response.json();
+            const image = `data:image/jpeg;base64, ${data.photo}`;
+            props.img(image);
+
+        } catch (error) {
+            console.log(error);
+        }
+        props.isLoading(false);
+    }
+
   return (
     <form onSubmit={handleSubmit}>
-                <Input 
+        <Input 
             ref={nameInput}
             label= {{
                 text: "Give your name",
                 hidden: false
             }}
             input={{
-                id: 'generate',
+                id: 'name',
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Enter name",
@@ -33,13 +55,13 @@ const ImageForm = (props) => {
             }}
         />
         <Input 
-            ref={cardText}
+            ref={wishesInput}
             label= {{
                 text: "Do you want to add birthday wishes?",
                 hidden: false
             }}
             input={{
-                id: 'generate',
+                id: 'wishes',
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Type birthday wishes...",
@@ -61,7 +83,8 @@ const ImageForm = (props) => {
             }}
         />
         <p>Need inspiration for the image? <button onClick={promptHandler} type="button" >Click here</button></p>
-        <button type="submit" >Generate Card</button>
+        <button type="button" onClick={generateCard} >Generate Card</button>
+        <button type="submit"> Save Card</button>
     </form>
   )
 }
