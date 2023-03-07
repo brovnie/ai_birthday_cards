@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import GenerateImage from './GenerateImage';
-import { Input } from '../../components';
+import { Input, Button } from '../../components';
+
 
 const BirthdayCardForm = () => {
     const senderInput = useRef("");
@@ -64,7 +65,7 @@ const BirthdayCardForm = () => {
             imageText={setImageText}
             image={setImage}
         />
-        <button type="submit"> Save Card</button>
+        <Button type="submit" bgcolor="bg-green-600">Save Card</Button>
     </form>
   )
 }

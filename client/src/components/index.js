@@ -4,6 +4,7 @@ import Loader from "./UI/Loader";
 import Input from "./UI/Input";
 import Image from "./UI/Image";
 import Hero from "./Hero/Hero";
+import Button from "./UI/Button";
 
 export {
     Router,
@@ -11,5 +12,6 @@ export {
     Loader,
     Input,
     Image,
-    Hero
+    Hero,
+    Button
 }
