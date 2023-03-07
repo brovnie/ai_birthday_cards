@@ -3,7 +3,8 @@ import GenerateImage from './GenerateImage';
 import { Input } from '../../components';
 
 const BirthdayCardForm = () => {
-    const nameInput = useRef("");
+    const senderInput = useRef("");
+    const reciverInput = useRef("");
     const wishesInput = useRef("");
     const [imageText, setImageText] = useState("");
     const [image, setImage] = useState("");
@@ -14,25 +15,41 @@ const BirthdayCardForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="">
         <Input 
-            ref={nameInput}
+            ref={senderInput}
+            wrapperCss="md:flex-row mb-3"
             label= {{
-                text: "Give your name",
+                text: "From:",
                 hidden: false
             }}
             input={{
                 id: 'name',
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
-                placeholder: "Enter name",
-                className: "col-span-8"
+                placeholder: "Enter your name",
+                cssclass: "col-span-8 mt-2"
+            }}
+        />
+                <Input 
+            ref={reciverInput}
+             wrapperCss="md:flex-row mb-3"
+            label= {{
+                text: "To:",
+                hidden: false
+            }}
+            input={{
+                id: 'name',
+                type: 'text',
+                pattern: "^[^ ].+[^ ]$",
+                placeholder: "Enter celebrants name ",
+                cssclass: "col-span-8 mt-2 mb-3"
             }}
         />
         <Input 
             ref={wishesInput}
             label= {{
-                text: "Do you want to add birthday wishes?",
+                text: "Do you want to add birthday wishes? (optional)",
                 hidden: false
             }}
             input={{
@@ -40,7 +57,7 @@ const BirthdayCardForm = () => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Type birthday wishes...",
-                className: "col-span-8"
+                cssclass: "col-span-8 mt-2"
             }}
         />
         <GenerateImage

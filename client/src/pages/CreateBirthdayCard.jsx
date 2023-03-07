@@ -3,9 +3,10 @@ import BirthdayCardForm from '../features/GenerateBirthdayCard/BirthdayCardForm'
 const CreateBirthdayCard = () => {
   return (
     <section>
-      <h2>Generate your own AI Bithday card.</h2>
+      <div className="h-[250px] xl:h-[350px] flex items-end justify-bottom">
+        <h2 className="text-5xl my-10 leading-relaxed">Generate your own AI Bithday card🎉 </h2>
+      </div>
       <BirthdayCardForm />
-      <p>Step 2: Send to your friend</p>
     </section>
   )
 }

@@ -29,7 +29,7 @@ const Search = (props) => {
                         type: 'text',
                         pattern: "^[^ ].+[^ ]$",
                         placeholder: "Search AI Images",
-                        className: "col-span-8"
+                        cssclass: "col-span-8 !pl-10"
                     }}
                 />
             </div>

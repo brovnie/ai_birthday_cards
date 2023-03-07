@@ -7,6 +7,8 @@ const Hero = () => {
         <p>Send AI generated Birthday Card to your friends.</p>
         <sub>Powered by DALLE-E AI</sub>
     </section>
+
+    
   )
 }
 

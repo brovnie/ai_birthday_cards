@@ -40,10 +40,13 @@ const GenerateImage = (props) => {
   return (
     <div>
         <Image
-            alt={promptInput}
-            src={image}
-            width="250px"
-            height="250px"
+            wrapperCss="m-auto"
+            image= {{
+                alt: promptInput,
+                src: image,
+                width: "250px",
+                height: "250px"
+            }}
         > 
             { (isLoading) && <Loader />}
         </Image>
@@ -58,7 +61,7 @@ const GenerateImage = (props) => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Example: Green birthday card with yellow heards",
-                className: "col-span-8"
+                cssclass: "col-span-8 mt-3"
             }}
         />
         <p> 
