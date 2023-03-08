@@ -65,7 +65,8 @@ const BirthdayCardForm = () => {
             imageText={setImageText}
             image={setImage}
         />
-        <Button type="submit" bgcolor="bg-green-600">Save Card</Button>
+        <p className="mb-3">Keep generating until you find a perfect image for your birthday card. </p>
+        <Button type="submit" bgcolor="bg-blue-600">Save</Button>
     </form>
   )
 }

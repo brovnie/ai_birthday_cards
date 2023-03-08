@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Input, Image, Loader } from '../../components'
+import { Input, Image, Loader, Button } from '../../components'
 import preview from "../../assets/preview.png";
 import { getRandomPrompt } from '../../utils';
 
@@ -38,9 +38,9 @@ const GenerateImage = (props) => {
     }
 
   return (
-    <div>
+    <div className="mb-5">
         <Image
-            wrapperCss="m-auto"
+            wrapperCss="m-auto my-5 rounded-xl overflow-hidden"
             image= {{
                 alt: promptInput,
                 src: image,
@@ -64,10 +64,11 @@ const GenerateImage = (props) => {
                 cssclass: "col-span-8 mt-3"
             }}
         />
-        <p> 
-            <button onClick={promptHandler} type="button"> Click here </button> 
-        </p>
-        <button type="button" onClick={generateCard} >Generate Card</button>
+        <div className="flex items-center pt-5 pb-5 space-x-3">
+            <p className="flex-1 flex-grow">Need some inspiration?</p>
+            <Button type="button" onClick={promptHandler} bgcolor="bg-gray-100" css="!w-auto !text-neutral-500 px-3 font-bold">Generate Random Text</Button>
+        </div>
+        <Button type="button" onClick={generateCard} bgcolor="bg-green-600">Generate</Button>
     </div>
   )
 }
