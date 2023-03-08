@@ -40,7 +40,7 @@ const GenerateImage = (props) => {
   return (
     <div className="mb-5">
         <Image
-            wrapperCss="m-auto my-5 rounded-xl overflow-hidden"
+            wrapperCss="m-auto my-5 rounded-xl overflow-hidden border border-[1px] shadow-md md:m md:min-w-[450px] md:min-h-[450px] md:ml-0"
             image= {{
                 alt: promptInput,
                 src: image,
@@ -48,7 +48,11 @@ const GenerateImage = (props) => {
                 height: "250px"
             }}
         > 
-            { (isLoading) && <Loader />}
+            { (isLoading) && (
+                <div className='absolute w-full h-full flex justify-center items-center z-10 bg-gray-200 opacity-80'>
+                    <Loader />
+                </div>
+                )}
         </Image>
         <Input 
             ref={promptInput}
@@ -65,10 +69,13 @@ const GenerateImage = (props) => {
             }}
         />
         <div className="flex items-center pt-5 pb-5 space-x-3">
-            <p className="flex-1 flex-grow">Need some inspiration?</p>
-            <Button type="button" onClick={promptHandler} bgcolor="bg-gray-100" css="!w-auto !text-neutral-500 px-3 font-bold">Generate Random Text</Button>
+            <p className="flex-1 flex-grow md:grow-0 min-w-[20ch]">Need some inspiration?</p>
+            <Button type="button" onClick={promptHandler} bgcolor="bg-gray-100" css="!w-auto !text-neutral-500 px-3 font-bold !text-base !px-7 !py-2 ">Generate Random Text</Button>
         </div>
-        <Button type="button" onClick={generateCard} bgcolor="bg-green-600">Generate</Button>
+        <div className="md:flex justify-start">
+                <Button type="button" onClick={generateCard} bgcolor="bg-green-600" css="">Generate Image</Button>
+        </div>
+        <hr className="mt-5"/>
     </div>
   )
 }

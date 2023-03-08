@@ -16,10 +16,11 @@ const BirthdayCardForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} className="">
+    <form onSubmit={handleSubmit} className="md:min-w[500px] max-w-[837px]" >
+ 
         <Input 
             ref={senderInput}
-            wrapperCss="md:flex-row mb-3"
+            wrapperCss=" mb-3 md:mb-5"
             label= {{
                 text: "From:",
                 hidden: false
@@ -34,7 +35,7 @@ const BirthdayCardForm = () => {
         />
                 <Input 
             ref={reciverInput}
-             wrapperCss="md:flex-row mb-3"
+             wrapperCss="mb-3 md:mb-5"
             label= {{
                 text: "To:",
                 hidden: false
@@ -58,15 +59,17 @@ const BirthdayCardForm = () => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Type birthday wishes...",
-                cssclass: "col-span-8 mt-2"
+                cssclass: "col-span-8 mt-3 mb-3"
             }}
         />
+     
+    
         <GenerateImage
             imageText={setImageText}
             image={setImage}
         />
-        <p className="mb-3">Keep generating until you find a perfect image for your birthday card. </p>
-        <Button type="submit" bgcolor="bg-blue-600">Save</Button>
+        <Button type="submit" bgcolor="bg-blue-600" css="md:flex md:mr-0 md:ml-auto">Save Birthday Card</Button>
+        
     </form>
   )
 }
