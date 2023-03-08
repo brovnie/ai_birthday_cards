@@ -33,8 +33,9 @@ const GenerateImage = (props) => {
         } catch (error) {
             console.log(error);
             alert(error);
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     }
 
   return (
