@@ -26,7 +26,7 @@ const GenerateImage = (props) => {
             });
 
             const data = await response.json();
-            const generatedImage = `data:image/jpeg;base64, ${data.photo}`;
+            const generatedImage = `data:image/jpeg;base64,${data.photo}`;
             setImage(generatedImage);
             props.image(generatedImage);
             props.imageText(promptInput.current.value);

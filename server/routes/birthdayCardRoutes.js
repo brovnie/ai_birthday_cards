@@ -16,11 +16,10 @@ cloudinary.config({
 
 // GET 
 router.route('/').get(async (req,res) => {
-      res.send("Hello from birthday cards");
-
       try {
         const birthdayCards = await BirthdayCard.find({}); 
-           res.status(200).json({ success: true, data: birthdayCards });
+     
+        res.status(200).json({ success: true, data: birthdayCards });
       } catch (error) {
         res.status(500).json({ success: true, message: error });
       }
@@ -28,13 +27,12 @@ router.route('/').get(async (req,res) => {
 // POST
 router.route('/').post(async(req, res) => {
     try {
-        const { name, celebraitsName, prompt,wishes, photo } = req.body;
+        const { name, celebraitsName, wishes, photo } = req.body;
         const photoUrl = await cloudinary.uploader.upload(photo);
         
         const newBirthdayCard = await BirthdayCard.create({
             name,
             celebraitsName,
-            prompt,
             wishes,
             photo: photoUrl.url
         })

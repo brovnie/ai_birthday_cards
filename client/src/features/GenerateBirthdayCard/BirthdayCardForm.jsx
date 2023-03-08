@@ -10,9 +10,30 @@ const BirthdayCardForm = () => {
     const [imageText, setImageText] = useState("");
     const [image, setImage] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
+        
+        const form = {
+            name: senderInput.current.value,
+            celebraitsName: reciverInput.current.value,
+            wishes: wishesInput.current.value,
+            photo: image
+        }
+
+        try {
+            const url = "http://localhost:8080/api/v1/birthday_card"
+            const response = await fetch(url , {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+            }) 
+            await response.json();
+        } catch (error) {
+            alert(error);
+        }
     }
 
   return (
@@ -30,7 +51,8 @@ const BirthdayCardForm = () => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Enter your name",
-                cssclass: "col-span-8 mt-2"
+                cssclass: "col-span-8 mt-2",
+                required: true
             }}
         />
                 <Input 
@@ -45,7 +67,8 @@ const BirthdayCardForm = () => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Enter celebrants name ",
-                cssclass: "col-span-8 mt-2 mb-3"
+                cssclass: "col-span-8 mt-2 mb-3",
+                required: true
             }}
         />
         <Input 
@@ -59,7 +82,8 @@ const BirthdayCardForm = () => {
                 type: 'text',
                 pattern: "^[^ ].+[^ ]$",
                 placeholder: "Type birthday wishes...",
-                cssclass: "col-span-8 mt-3 mb-3"
+                cssclass: "col-span-8 mt-3 mb-3",
+                required: true
             }}
         />
      
