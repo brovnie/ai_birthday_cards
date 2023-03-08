@@ -15,8 +15,15 @@ cloudinary.config({
 })
 
 // GET 
-router.route('/').get((req,res) => {
-      res.send("Hello from birthday cards")
+router.route('/').get(async (req,res) => {
+      res.send("Hello from birthday cards");
+
+      try {
+        const birthdayCards = await BirthdayCard.find({}); 
+           res.status(200).json({ success: true, data: birthdayCards });
+      } catch (error) {
+        res.status(500).json({ success: true, message: error });
+      }
 })
 // POST
 router.route('/').post(async(req, res) => {
