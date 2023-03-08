@@ -12,7 +12,7 @@ Webapp that delivers birthday cards with AI generated images to your friends mai
 
 ## How to start:
 
-You will need your own mangodb server and api-key from Openai.
+You will need your own mangodb server, api-key from Openai and a cloudinary account.
 Fill in .env.example files with your credentials and change its name to .env
 
 ### Commands
