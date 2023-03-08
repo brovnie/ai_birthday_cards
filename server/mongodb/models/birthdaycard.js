@@ -5,7 +5,7 @@ const BirthdayCard = new mongoose.Schema({
     celebraitsName: { type: String, required: true },
     prompt: { type: String, required: true },
     wishes: { type: String, required: false },
-    foto: { type: String, required: true },
+    photo: { type: String, required: true },
 });
 
 const BirthdayCardSchema = mongoose.model("BirthdayCard", BirthdayCard);
