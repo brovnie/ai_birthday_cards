@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Loader } from "../../components";
 import { Search } from "../index.js";
 import Grid from './Grid';
 
 const Showcase = () => {
-    const [loading,setLoading] = useState(false);
+    const [isLoading,setisLoading] = useState(false);
 
     const handleLoading = (data) => {
-      console.log("hello");
       setLoading(data);
     }
 
@@ -15,7 +14,7 @@ const Showcase = () => {
     <div>
     <Search isLoading={handleLoading}/>
         {
-            loading ? ( <Loader /> ) : ( <Grid /> ) 
+            isLoading ? ( <Loader /> ) : ( <Grid isLoading={handleLoading}/> ) 
         }
     </div>
   )
