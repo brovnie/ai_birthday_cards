@@ -7,14 +7,14 @@ const Showcase = () => {
     const [isLoading,setisLoading] = useState(false);
 
     const handleLoading = (data) => {
-      setLoading(data);
+      setisLoading(data);
     }
 
   return (
     <div>
     <Search isLoading={handleLoading}/>
         {
-            isLoading ? ( <Loader /> ) : ( <Grid isLoading={handleLoading}/> ) 
+            !isLoading ? ( <Loader /> ) : ( <Grid isLoading={handleLoading}/> ) 
         }
     </div>
   )
