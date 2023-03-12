@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import GenerateImage from './GenerateImage';
-import { Input, Button } from '../../components';
+import { Input, Button, Loader } from '../../components';
 
 
 const BirthdayCardForm = () => {
@@ -9,10 +9,10 @@ const BirthdayCardForm = () => {
     const wishesInput = useRef("");
     const [imageText, setImageText] = useState("");
     const [image, setImage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+        e.preventDefault();        
         
         const form = {
             name: senderInput.current.value,
@@ -22,6 +22,7 @@ const BirthdayCardForm = () => {
         }
 
         try {
+            setIsLoading(true);
             const url = "http://localhost:8080/api/v1/birthday_card"
             const response = await fetch(url , {
           method: 'POST',
@@ -33,7 +34,10 @@ const BirthdayCardForm = () => {
             await response.json();
         } catch (error) {
             alert(error);
+        } finally {
+            setIsLoading(false);
         }
+
     }
 
   return (
@@ -92,7 +96,15 @@ const BirthdayCardForm = () => {
             imageText={setImageText}
             image={setImage}
         />
-        <Button type="submit" bgcolor="bg-blue-600" css="md:flex md:mr-0 md:ml-auto">Save Birthday Card</Button>
+        <Button type="submit" bgcolor="bg-blue-600 flex items-center justify-center" css="md:flex md:mr-0 md:ml-auto">
+        { (isLoading) && (
+            
+                <Loader 
+                css="scale-[0.65] absolute left-[25%] md:left-[-3px]"
+                />
+            
+            ) } Save Birthday Card
+        </Button>
         
     </form>
   )
