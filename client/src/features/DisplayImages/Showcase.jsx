@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Loader } from "../../components";
 import { Search } from "../index.js";
-
 import Grid from './Grid';
+
 const Showcase = () => {
     const [loading,setLoading] = useState(false);
 
@@ -10,6 +10,7 @@ const Showcase = () => {
       console.log("hello");
       setLoading(data);
     }
+
   return (
     <div>
     <Search isLoading={handleLoading}/>
