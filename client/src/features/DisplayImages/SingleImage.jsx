@@ -3,12 +3,12 @@ import { Card } from '../../layouts'
 import { Image } from '../../components'
 import preview from "../../assets/preview.png";
 
-const SingleImage = () => {
+const SingleImage = (props) => {
   return (
     <Card>
       <Image
         image= {{
-            alt: "test",
+            alt: props.name,
             src: preview,
             width: "250px",
             height: "250px"
