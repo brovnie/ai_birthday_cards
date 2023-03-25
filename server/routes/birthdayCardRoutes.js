@@ -18,7 +18,7 @@ cloudinary.config({
 router.route('/').get(async (req,res) => {
       try {
         const birthdayCards = await BirthdayCard.find({}); 
-     
+        //await BirthdayCard.deleteMany();
         res.status(200).json({ success: true, data: birthdayCards });
       } catch (error) {
         res.status(500).json({ success: true, message: error });

@@ -41,7 +41,7 @@ const GenerateImage = (props) => {
   return (
     <div className="mb-5">
         <Image
-            wrapperCss="m-auto my-5 rounded-xl overflow-hidden border border-[1px] shadow-md md:m md:min-w-[450px] md:min-h-[450px] md:ml-0"
+            wrapperCss="m-auto my-5 shadow-md md:m md:min-w-[450px] md:min-h-[450px] md:ml-0"
             image= {{
                 alt: promptInput,
                 src: image,
@@ -49,11 +49,11 @@ const GenerateImage = (props) => {
                 height: "250px"
             }}
         > 
-            { (isLoading) && (
-                <div className='absolute w-full h-full flex justify-center items-center z-10 bg-gray-200 opacity-80'>
-                    <Loader />
-                </div>
-                )}
+        { (isLoading) && (
+            <div className='absolute w-full h-full flex justify-center items-center z-10 bg-gray-200 opacity-80'>
+                <Loader />
+            </div>
+        )}
         </Image>
         <Input 
             ref={promptInput}
